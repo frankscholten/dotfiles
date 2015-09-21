@@ -158,3 +158,8 @@ alias dm='docker-machine'
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 
 export IDEA_JDK=$JAVA_HOME
+
+alias findbugs='findbugs -textui'
+
+# Dconf settings
+dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
