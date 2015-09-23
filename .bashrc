@@ -163,3 +163,5 @@ alias findbugs='findbugs -textui'
 
 # Dconf settings
 dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
+
+alias nano=vim
