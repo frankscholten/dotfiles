@@ -108,6 +108,8 @@ function docker {
       /usr/bin/docker exec -it "$@" bash
    elif [ "$1" == "clean" ]; then
       /usr/bin/docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}')
+   elif [ "$1" == "pid" ]; then
+      /usr/bin/docker inspect --format '{{.State.Pid}}' "$2"
    else
       /usr/bin/docker "$@"
    fi
