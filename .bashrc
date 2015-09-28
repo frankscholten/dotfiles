@@ -110,6 +110,8 @@ function docker {
       /usr/bin/docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}')
    elif [ "$1" == "pid" ]; then
       /usr/bin/docker inspect --format '{{.State.Pid}}' "$2"
+   elif [ "$1" == "ip" ]; then
+      /usr/bin/docker inspect --format '{{.NetworkSettings.IPAddress}}' "$2"
    else
       /usr/bin/docker "$@"
    fi
@@ -129,6 +131,8 @@ alias gb='git branch'
 alias gs='git status'
 alias gd='git diff'
 alias gnb='git checkout -b'
+
+export GIT_EDITOR=vim
 
 # fig aliases
 
