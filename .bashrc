@@ -108,6 +108,10 @@ function docker {
       /usr/bin/docker exec -it "$@" bash
    elif [ "$1" == "clean" ]; then
       /usr/bin/docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}')
+   elif [ "$1" == "pid" ]; then
+      /usr/bin/docker inspect --format '{{.State.Pid}}' "$2"
+   elif [ "$1" == "ip" ]; then
+      /usr/bin/docker inspect --format '{{.NetworkSettings.IPAddress}}' "$2"
    else
       /usr/bin/docker "$@"
    fi
@@ -127,6 +131,8 @@ alias gb='git branch'
 alias gs='git status'
 alias gd='git diff'
 alias gnb='git checkout -b'
+
+export GIT_EDITOR=vim
 
 # fig aliases
 
@@ -159,4 +165,7 @@ JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 
 export IDEA_JDK=$JAVA_HOME
 
+# Dconf settings
+dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
 
+alias nano=vim
