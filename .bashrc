@@ -151,6 +151,7 @@ alias gi='go install'
 alias gt='go test'
 
 export GOPATH=/home/frank/src/go
+<<<<<<< HEAD
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:/opt/idea/bin:/opt/maven/bin:/opt/gradle/bin:/opt/ngrok/bin:/opt/groovy/bin:/opt/clion/bin
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
